@@ -52,8 +52,51 @@ $.getScript('character_template.js'), function () {
             PlayerOne.strength = 10;
             PlayerOne.dexterity = 12;
             PlayerOne.intelligence = 12;
-
+            break;
         case sea:
+            PlayerOne.strength = 8;
+            PlayerOne.dexterity = 14
+            PlayerOne.intelligence = 12;
+            break;
+        case high:
+            PlayerOne.strength = 8;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 16;
+            break;
+        case wood:
+            PlayerOne.strength = 8;
+            PlayerOne.dexterity = 16;
+            PlayerOne.intelligence = 10;
+            break;
+        case hill:
+            PlayerOne.strength = 14;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 10;
+            break;
+        case mountain:
+            PlayerOne.strength = 16;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 8;
+            break;
+        case voyager:
+            PlayerOne.strength = 12;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 12;
+            break;
+        case trader:
+            PlayerOne.strength = 10;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 14;
+            break;
+        case warrior:
+            PlayerOne.strength = 14;
+            PlayerOne.dexterity = 14;
+            PlayerOne.intelligence = 6;
+            break;
+        default:
+            PlayerOne.strength = 10;
+            PlayerOne.dexterity = 10;
+            PlayerOne.intelligence = 10;    
     }
 
     switch (PlayerOne.archetype){
