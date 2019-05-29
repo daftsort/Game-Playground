@@ -1,3 +1,2 @@
 # Game-Playground
-Just experimenting with some code
-Working on a basic game in JS
+Just experimenting with some code to build on a basic rpg in JS
