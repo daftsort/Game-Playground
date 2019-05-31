@@ -1,16 +1,15 @@
-// ---- Uses character_config functions
-
 var player_character = {
 
     /*  These are the player's primary characteristics/resources. They are static values that change upon levelling up.
         They do not influence character interactions in the same way as the attributes do.
         There are some abilities that are accessible if a player has enough of the resource. */
-    name: "blank",
+    name: "",
     level: 1,
     gold: 0,
     experience: 0,
-    race: "human",
-    subrace: "default",
+    rested: true,
+    race: "", // Human, Elf, Dwarf, Lupe
+    subrace: "",
     health: 0,
     stamina: 0,
     mana: 0,
@@ -111,4 +110,35 @@ var player_character = {
     pickpocket: concealment_level + pickpocket_proficiency,
     lockpick: cunning_level + lockpick_proficiency,
     sneak: concealment_level + sneak_proficiency,
+
+    getExpNeeded: function(){
+        var exp = 0;
+        for (var i = 1; i < player_character.level; i++){
+            exp += Math.floor((player_character.level + 1)*20);
+        }
+        return exp - player_character.experience;
+    },
+
+    gainExp: function(exp){
+        player_character.experience += exp;
+        Terminal.print("You've earned " + exp + "experience toward your next level!");
+        var expNeeded = player_character.getExpNeeded();
+        while (expNeeded < 0){
+            player_character.levelUp();
+            Terminal.print("You've reached the next level. Please visit a town to rest a reflect on what you've learned.");
+            expNeeded = player_character.getExpNeeded();
+        }
+    },
+
+    levelUp: function(){
+        if (rested = true){
+            player_character.level++;
+            archetypeLevelUp();
+            versatilityLevelUp();
+            player_character.mana += diceRoll(1,6);
+            player_character.health += diceRoll(1,6);
+            player_character.stamina += diceRoll(1,6);
+            player_character.rested = false;
+        }
+    },
 }
